@@ -39,6 +39,8 @@ export default defineConfigWithVueTs(
     files: ['**/*.ts', '**/*.vue'],
     rules: {
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+      // 禁用 组件名必须是多个单词
+      'vue/multi-word-component-names': 'off',
     },
   },
   // https://github.com/vuejs/eslint-config-typescript

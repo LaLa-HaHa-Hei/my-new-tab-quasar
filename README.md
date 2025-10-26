@@ -1,6 +1,6 @@
-# New Tab (new-tab)
+# My New Tab (my-new-tab)
 
-A new tab for the browser
+Highly customizable tabs for your browser, allowing you to use multiple search engines simultaneously
 
 ## Install the dependencies
 

@@ -1,43 +1,66 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+  <q-page ref="indexPageRef">
+
+    <Background />
+    <LanguageSelector />
+    <CurrentTime />
+    <CurrentDate />
+    <SearchBoxContainer />
+    <Dashboard />
+
+    <q-menu v-model="menuVisible" class="bg-grey-3" touch-position context-menu auto-close>
+      <q-list dense separator>
+        <q-item clickable @click="showSettingsDialog()" class="flex-center">
+          <q-item-section class="items-center">{{ t('settings.title') }}</q-item-section>
+        </q-item>
+        <q-item v-for="item in contextMenuStore.getAllItems()" :key="item.label" clickable @click="item.onClick()">
+          <q-item-section class="items-center">{{ item.label }}</q-item-section>
+        </q-item>
+      </q-list>
+    </q-menu>
+
+    <SettingsDialog v-model="settingsDialogVisible" :init-page="initPage" />
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+import { ref, onMounted, onBeforeUnmount, provide } from 'vue'
+import Background from 'components/Background.vue'
+import SettingsDialog from 'components/SettingsDialog.vue'
+import CurrentTime from 'components/CurrentTime.vue'
+import CurrentDate from 'components/CurrentDate.vue'
+import SearchBoxContainer from 'components/SearchBoxContainer.vue'
+import Dashboard from 'components/Dashboard.vue'
+import { useContextMenuStore } from 'stores/contextMenu'
+import { InjectKeys } from 'src/constants/injectKeys'
+import LanguageSelector from 'components/LanguageSelector.vue'
+import { useI18n } from 'vue-i18n'
 
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1',
-  },
-  {
-    id: 2,
-    content: 'ct2',
-  },
-  {
-    id: 3,
-    content: 'ct3',
-  },
-  {
-    id: 4,
-    content: 'ct4',
-  },
-  {
-    id: 5,
-    content: 'ct5',
-  },
-]);
+const { t } = useI18n()
+const menuVisible = ref(false)
+const settingsDialogVisible = ref(false)
+const initPage = ref('current-time')
+const contextMenuStore = useContextMenuStore()
+const indexPageRef = ref()
 
-const meta = ref<Meta>({
-  totalCount: 1200,
-});
+function showSettingsDialog(page?: string) {
+  initPage.value = page || 'current-time'
+  settingsDialogVisible.value = true
+}
+
+provide(InjectKeys.showSettingsDialog, showSettingsDialog)
+
+function onContextMenuCapture() {
+  contextMenuStore.clearAllItems()
+}
+
+onMounted(() => {
+  indexPageRef.value.$el.addEventListener('contextmenu', onContextMenuCapture, true);
+})
+
+onBeforeUnmount(() => {
+  indexPageRef.value.$el.removeEventListener('contextmenu', onContextMenuCapture, true);
+})
 </script>
+
+<style scoped lang="scss"></style>
