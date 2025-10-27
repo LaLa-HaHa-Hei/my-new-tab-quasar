@@ -84,7 +84,7 @@ function handleUpdateH(index: number, value: number) {
 function handleResetToDefault() {
   dashboardStore.resetToDefault()
   Notify.create({
-    message: t('settings.dashboard.resetToDefaultSuccess'),
+    message: t('common.message.success'),
     color: 'positive',
     position: 'top',
   })

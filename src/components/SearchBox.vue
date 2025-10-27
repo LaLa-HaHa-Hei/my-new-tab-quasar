@@ -13,7 +13,7 @@
     <q-img class="cursor-pointer" :style="{
       height: searchBoxStore.config!.iconSize,
       width: searchBoxStore.config!.iconSize,
-    }" :src="props.config.icon" fit="contain" @click="search" />
+    }" :src="props.config.icon" fit="contain" @click="search" loading="eager" loading-show-delay="500" />
   </div>
 </template>
 

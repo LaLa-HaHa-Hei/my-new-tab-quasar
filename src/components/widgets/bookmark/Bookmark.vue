@@ -2,7 +2,7 @@
   <div ref="bookmarkRef" class="bookmark column cursor-pointer fit" :style="{ backgroundColor: bgColor }"
     @mouseover="bgColor = bookmarkStore.config!.hoverBgColor" @mouseleave="bgColor = 'rgba(255, 255, 255, 0)'"
     @click="handleClick">
-    <q-img class="col" :src="data.icon" fit="contain" :ratio="1" />
+    <q-img class="col" :src="data.icon" fit="contain" :ratio="1" loading="eager" loading-show-delay="500" />
     <div v-if="bookmarkStore.config!.showLabel" class="row justify-center"
       :style="{ color: bookmarkStore.config!.labelColor, fontSize: bookmarkStore.config!.fontSize }"> {{
         data.label }} </div>

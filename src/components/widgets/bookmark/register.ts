@@ -11,11 +11,11 @@ import { i18n } from 'src/boot/i18n';
 const def: WidgetDef = {
   key: 'bookmark',
   get name() {
-    return i18n.global.t('widget.bookmark.name');
+    return i18n.global.t('widgets.bookmark.name');
   },
   component: Bookmark,
   get description() {
-    return i18n.global.t('widget.bookmark.description');
+    return i18n.global.t('widgets.bookmark.description');
   },
   toString: (widget: WidgetItem) => {
     const data = widget.data as BookmarkData;

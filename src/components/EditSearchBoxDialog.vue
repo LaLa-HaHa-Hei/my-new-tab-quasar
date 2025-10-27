@@ -2,20 +2,21 @@
   <q-dialog ref="dialogRef">
     <q-card>
       <q-card-section>
-        <div class="text-h6">编辑搜索引擎</div>
+        <div class="text-h6">{{ t('components.editSearchBoxDialog.title') }}</div>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        <q-input v-model="searchUrl" debounce="500" label="以 %s 代替查询的 URL" />
-        <q-input v-model="label" label="名称" />
-        <q-input v-model="icon" clearable label="图标地址" />
-        <q-file accept="image/*" v-model="iconFile" label="上传本地图标" clearable filled />
+        <q-input v-model="searchUrl" debounce="500" :label="t('components.editSearchBoxDialog.searchUrl')" />
+        <q-input v-model="label" :label="t('components.editSearchBoxDialog.name')" />
+        <q-input v-model="icon" clearable :label="t('components.editSearchBoxDialog.iconUrl')" />
+        <q-file accept="image/*" v-model="iconFile" :label="t('components.editSearchBoxDialog.uploadLocalIcon')"
+          clearable filled />
       </q-card-section>
 
       <q-separator />
 
       <q-card-actions align="right">
-        <q-btn flat label="取消" color="warning" @click="handleCancelClick" />
+        <q-btn flat :label="t('common.button.cancel')" color="warning" @click="handleCancelClick" />
         <q-btn flat :label="t('common.button.confirm')" color="primary" @click="handleConfirmClick" />
       </q-card-actions>
     </q-card>
@@ -29,7 +30,6 @@ import type { SearchBoxItem } from 'src/types'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-
 const props = defineProps({
   item: {
     type: Object as () => SearchBoxItem,

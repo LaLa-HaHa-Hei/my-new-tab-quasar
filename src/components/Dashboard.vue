@@ -50,18 +50,18 @@ function handleContextMenu(event: MouseEvent) {
     const widgetDef = widgetRegistry.getWidgetDef(widget.widgetKey) as WidgetDef
     if (widgetDef.editItem) {
       contextMenuStore.registerItem({
-        label: t('compoment.dashboard.editItem'),
+        label: t('components.dashboard.editItem'),
         onClick: () => {
           widgetDef.editItem?.(widget).then((newWidget: WidgetItem) => {
             dashboardStore.updateWidgetByIndex(widgetIndex, newWidget)
             Notify.create({
-              message: t('compoment.dashboard.editItemSuccess'),
+              message: t('components.dashboard.editItemSuccess'),
               color: 'positive',
               position: 'top',
             })
           }).catch(() => {
             Notify.create({
-              message: t('compoment.dashboard.editItemFailed'),
+              message: t('components.dashboard.editItemFailed'),
               color: 'positive',
               position: 'top',
             })
@@ -71,14 +71,14 @@ function handleContextMenu(event: MouseEvent) {
     }
     if (widgetDef.editConfig) {
       contextMenuStore.registerItem({
-        label: t('compoment.dashboard.editConfig'),
+        label: t('components.dashboard.editConfig'),
         onClick: () => {
           widgetDef.editConfig?.()
         }
       })
     }
     contextMenuStore.registerItem({
-      label: t('compoment.dashboard.deleteItem'),
+      label: t('components.dashboard.deleteItem'),
       onClick: () => {
         dashboardStore.deleteWidgetByIndex(widgetIndex)
       }

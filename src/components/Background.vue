@@ -1,7 +1,7 @@
 <template>
   <div class="background fixed-center window-height window-width">
     <q-img class="fit" fit="cover" :src="backgroundStore.config!.image" :img-style="imageStyle"
-      img-class="my-custom-image" />
+      img-class="my-custom-image" loading="eager" loading-show-delay="500" />
   </div>
 </template>
 

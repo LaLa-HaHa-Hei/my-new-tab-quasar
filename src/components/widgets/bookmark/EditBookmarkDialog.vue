@@ -2,23 +2,23 @@
   <q-dialog ref="dialogRef">
     <q-card>
       <q-card-section>
-        <div class="text-h6">{{ t('widget.bookmark.editItemDialog.title') }}</div>
+        <div class="text-h6">{{ t('widgets.bookmark.item.edit.title') }}</div>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        <q-input v-model="url" debounce="500" :label="t('widget.bookmark.editItemDialog.url')" />
-        <q-input v-model="label" :label="t('widget.bookmark.editItemDialog.label')" />
+        <q-input v-model="url" debounce="500" :label="t('widgets.bookmark.item.url')" />
+        <q-input v-model="label" :label="t('widgets.bookmark.item.label')" />
         <div class="row items-center">
-          <q-input class="col" v-model="icon" clearable :label="t('widget.bookmark.editItemDialog.iconUrl')" />
+          <q-input class="col" v-model="icon" clearable :label="t('widgets.bookmark.item.iconUrl')" />
           <q-img style="width: 48px; height: 48px; border: 1px solid #ccc;" :src="icon" fit="contain" />
         </div>
         <q-file class="col-3" accept="image/*" v-model="iconFile"
-          :label="t('widget.bookmark.editItemDialog.uploadLocalIcon')" clearable filled />
+          :label="t('widgets.bookmark.item.edit.uploadLocalIcon')" clearable filled />
 
 
         <div class="row items-center">
-          <div>{{ t('widget.bookmark.editItemDialog.tryDetectOfficialIcon') }}<br />{{
-            t('widget.bookmark.editItemDialog.rightClickSaveToLocal') }}</div>
+          <div>{{ t('widgets.bookmark.item.edit.tryDetectOfficialIcon') }}<br />{{
+            t('widgets.bookmark.item.edit.rightClickSaveToLocal') }}</div>
           <q-img style="width: 48px; height: 48px; border: 1px solid #ccc;" :src="officialIcon || ''" fit="contain" />
         </div>
       </q-card-section>

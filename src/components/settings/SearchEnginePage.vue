@@ -27,7 +27,7 @@
                 :label="t('settings.searchEngine.openInNewTab')" />
               <q-toggle v-model="searchBoxStore.config!.clearAfterSearch"
                 :label="t('settings.searchEngine.clearAfterSearch')" />
-              <q-input v-model="searchBoxStore.config!.bgColor" :label="t('settings.searchEngine.bgColor')">
+              <q-input v-model="searchBoxStore.config!.bgColor" :label="t('settings.searchEngine.backgroundColor')">
                 <template v-slot:append>
                   <q-icon name="colorize" class="cursor-pointer">
                     <q-popup-proxy cover transition-show="scale" transition-hide="scale">
@@ -36,7 +36,8 @@
                   </q-icon>
                 </template>
               </q-input>
-              <q-input v-model="searchBoxStore.config!.focusBgColor" :label="t('settings.searchEngine.focusBgColor')">
+              <q-input v-model="searchBoxStore.config!.focusBgColor"
+                :label="t('settings.searchEngine.focusBackgroundColor')">
                 <template v-slot:append>
                   <q-icon name="colorize" class="cursor-pointer">
                     <q-popup-proxy cover transition-show="scale" transition-hide="scale">
@@ -183,7 +184,7 @@ function handleResetToDefault() {
   searchBoxContainerStore.resetToDefault()
   searchBoxStore.resetToDefault()
   Notify.create({
-    message: t('settings.searchEngine.resetToDefaultSuccess'),
+    message: t('common.message.success'),
     color: 'positive',
     position: 'top',
   })

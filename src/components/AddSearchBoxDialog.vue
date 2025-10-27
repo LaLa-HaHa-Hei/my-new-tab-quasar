@@ -2,21 +2,22 @@
   <q-dialog ref="dialogRef">
     <q-card>
       <q-card-section>
-        <div class="text-h6">添加搜索引擎</div>
+        <div class="text-h6">{{ t('components.addSearchBoxDialog.title') }}</div>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        <q-input v-model="searchUrl" debounce="500" label="以 %s 代替查询的 URL" />
-        <q-input v-model="label" label="名称" />
-        <q-input v-model="icon" clearable label="图标地址" />
-        <q-file accept="image/*" v-model="iconFile" label="上传本地图标" clearable filled />
+        <q-input v-model="searchUrl" debounce="500" :label="t('components.addSearchBoxDialog.searchUrl')" />
+        <q-input v-model="label" :label="t('components.addSearchBoxDialog.name')" />
+        <q-input v-model="icon" clearable :label="t('components.addSearchBoxDialog.iconUrl')" />
+        <q-file accept="image/*" v-model="iconFile" :label="t('components.addSearchBoxDialog.uploadLocalIcon')"
+          clearable filled />
       </q-card-section>
 
       <q-separator />
 
       <q-card-actions align="right">
-        <q-btn flat label="取消" color="warning" @click="handleCancelClick" />
-        <q-btn flat label="添加" color="primary" @click="handleAddClick" />
+        <q-btn flat :label="t('common.button.cancel')" color="warning" @click="handleCancelClick" />
+        <q-btn flat :label="t('common.button.add')" color="primary" @click="handleAddClick" />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -26,8 +27,9 @@
 import { ref, watch } from 'vue'
 import { useDialogPluginComponent } from 'quasar'
 import type { SearchBoxItem } from 'src/types'
+import { useI18n } from 'vue-i18n'
 
-
+const { t } = useI18n()
 defineEmits([...useDialogPluginComponent.emits])
 const { dialogRef, onDialogOK, onDialogCancel } = useDialogPluginComponent()
 

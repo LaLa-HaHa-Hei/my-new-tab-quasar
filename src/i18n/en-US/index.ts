@@ -6,55 +6,75 @@ export default {
       cancel: 'Cancel',
       resetToDefault: 'Reset to Default',
     },
+    form: {
+      name: 'Name',
+    },
+    message: {
+      success: 'Success',
+      failed: 'Failed',
+    },
   },
-  widget: {
+  widgets: {
     bookmark: {
       name: 'Bookmark',
       description: 'Used to quickly access a website',
-      editItemDialog: {
-        title: 'Edit Bookmark',
+      item: {
         url: 'URL',
-        label: 'Label',
+        name: 'Name',
         iconUrl: 'Icon URL',
-        uploadLocalIcon: 'Upload Local Icon',
-        tryDetectOfficialIcon: 'Try Detect Official Icon',
-        rightClickSaveToLocal: 'Right-click save to local after that you can upload',
+        edit: {
+          title: 'Edit Bookmark',
+          uploadLocalIcon: 'Upload Local Icon',
+          tryDetectOfficialIcon: 'Try Detect Official Icon',
+          rightClickSaveToLocal: 'Right-click save to local after that you can upload',
+        },
+        add: {
+          title: 'Add Bookmark',
+          uploadLocalIcon: 'Upload Local Icon',
+          tryDetectOfficialIcon: 'Try Detect Official Icon',
+          rightClickSaveToLocal: 'Right-click save to local after that you can upload',
+        },
       },
-      editConfigDialog: {
+      config: {
         title: 'Bookmark Config',
         openInNewTab: 'Open in New Tab',
-        showLabel: 'Show Label',
+        showName: 'Show Name',
         fontSize: 'Font Size',
         labelColor: 'Label Color',
         hoverBackgroundColor: 'Hover Background Color',
-      },
-      addItemDialog: {
-        title: 'Add Bookmark',
-        url: 'URL',
-        label: 'Label',
-        iconUrl: 'Icon URL',
-        uploadLocalIcon: 'Upload Local Icon',
-        tryDetectOfficialIcon: 'Try Detect Official Icon',
-        rightClickSaveToLocal: 'Right-click save to local after that you can upload',
       },
     },
     memo: {
       name: 'Memo',
       description: 'Used to record some information',
-      editConfigDialog: {
+      config: {
         title: 'Memo Config',
         fontSize: 'Font Size',
-        labelColor: 'Label Color',
+        textColor: 'Text Color',
       },
     },
   },
-  compoment: {
+  components: {
     dashboard: {
       editItem: 'Edit Item',
       editItemSuccess: 'Edit Item Success',
       editItemFailed: 'Edit Item Failed',
       editConfig: 'Edit Config',
       deleteItem: 'Delete',
+    },
+    addSearchBoxDialog: {
+      title: 'Add Search Engine',
+      searchUrl: 'URL with %s for search term',
+      name: 'Name',
+      iconUrl: 'Icon URL',
+      uploadLocalIcon: 'Upload Local Icon',
+    },
+    editSearchBoxDialog: {
+      title: 'Add Search Engine',
+      searchUrl: 'URL with %s for search term',
+      name: 'Name',
+      iconUrl: 'Icon URL',
+      uploadLocalIcon: 'Upload Local Icon',
     },
   },
   settings: {
@@ -67,6 +87,7 @@ export default {
       dashboard: 'Dashboard',
       addWidget: 'Add Widget',
       configManager: 'Config Manager',
+      about: 'About',
     },
     background: {
       blurLevel: 'Blur Level',
@@ -112,11 +133,9 @@ export default {
 
       isEnabled: 'Enabled',
       name: 'Name',
-      searchUrl: 'Search URL (Replace query with% s)',
+      searchUrl: 'URL with %s for search term',
       icon: 'Icon',
       action: 'Action',
-
-      resetToDefaultSuccess: 'Reset to Default Success',
     },
     dashboard: {
       addWidget: 'Add Widget',
@@ -124,21 +143,12 @@ export default {
       width: 'Width',
       height: 'Height',
       action: 'Action',
-      resetToDefaultSuccess: 'Reset to Default Success',
     },
     configManager: {
       exportConfigToClipboard: 'Export Config to Clipboard',
-      exportConfigToClipboardSuccess: 'Export Config to Clipboard Success',
-      exportConfigToClipboardFailed: 'Export Config to Clipboard Failed',
       importConfigFromClipboard: 'Import Config from Clipboard',
-      importConfigFromClipboardSuccess: 'Import Config from Clipboard Success',
-      importConfigFromClipboardFailed: 'Import Config from Clipboard Failed',
       exportConfigToFile: 'Export Config to File',
-      exportConfigToFileSuccess: 'Export Config to File Success',
-      exportConfigToFileFailed: 'Export Config to File Failed',
       importConfigFromFile: 'Import Config from File',
-      importConfigFromFileSuccess: 'Import Config from File Success',
-      importConfigFromFileFailed: 'Import Config from File Failed',
     },
   },
 };

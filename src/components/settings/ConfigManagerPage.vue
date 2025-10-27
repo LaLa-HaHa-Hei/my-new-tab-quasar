@@ -35,6 +35,22 @@ const searchBoxStore = useSearchBoxStore()
 const dashboardStore = useDashboardStore()
 const widgetRegistryStore = useWidgetRegistryStore()
 
+function showSuccess() {
+  Notify.create({
+    message: t('common.message.success'),
+    color: 'positive',
+    position: 'top',
+  })
+}
+
+function showFailed() {
+  Notify.create({
+    message: t('common.message.failed'),
+    color: 'negative',
+    position: 'top',
+  })
+}
+
 function exportConfig(): string {
   const config = {
     background: backgroundStore.config,
@@ -76,19 +92,9 @@ async function exportConfigToClipboard() {
 
 function handelExportConfigToClipboard() {
   exportConfigToClipboard()
-    .then(() => {
-      Notify.create({
-        message: t('settings.configManager.exportConfigToClipboardSuccess'),
-        color: 'positive',
-        position: 'top',
-      })
-    })
+    .then(showSuccess)
     .catch(err => {
-      Notify.create({
-        message: t('settings.configManager.exportConfigToClipboardFailed'),
-        color: 'negative',
-        position: 'top',
-      })
+      showFailed()
       console.error('导出配置到剪贴板失败:', err)
     })
 }
@@ -109,17 +115,9 @@ function exportConfigToFile(filename = 'my-new-tab-config.json') {
 function handleExportConfigToFile() {
   try {
     exportConfigToFile()
-    Notify.create({
-      message: t('settings.configManager.exportConfigToFileSuccess'),
-      color: 'positive',
-      position: 'top',
-    })
+    showSuccess()
   } catch (err) {
-    Notify.create({
-      message: t('settings.configManager.exportConfigToFileFailed'),
-      color: 'negative',
-      position: 'top',
-    })
+    showFailed()
     console.error('导出配置到文件失败:', err)
   }
 }
@@ -130,19 +128,10 @@ async function importConfigFromClipboard() {
 }
 
 function handleImportConfigFromClipboard() {
-  importConfigFromClipboard().then(() => {
-    Notify.create({
-      message: t('settings.configManager.importConfigFromClipboardSuccess'),
-      color: 'positive',
-      position: 'top',
-    })
-  })
+  importConfigFromClipboard()
+    .then(showSuccess)
     .catch(err => {
-      Notify.create({
-        message: t('settings.configManager.importConfigFromClipboardFailed'),
-        color: 'negative',
-        position: 'top',
-      })
+      showFailed()
       console.error('导入配置失败:', err)
     })
 }
@@ -166,19 +155,10 @@ async function importConfigFromFile(file?: File) {
 }
 
 function handleImportConfigFromFile() {
-  importConfigFromFile().then(() => {
-    Notify.create({
-      message: t('settings.configManager.importConfigFromFileSuccess'),
-      color: 'positive',
-      position: 'top',
-    })
-  })
+  importConfigFromFile()
+    .then(showSuccess)
     .catch(err => {
-      Notify.create({
-        message: t('settings.configManager.importConfigFromFileFailed'),
-        color: 'negative',
-        position: 'top',
-      })
+      showFailed()
       console.error('导入配置失败:', err)
     })
 }

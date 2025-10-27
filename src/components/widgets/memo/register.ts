@@ -11,11 +11,11 @@ import { i18n } from 'src/boot/i18n';
 const def: WidgetDef = {
   key: 'memo',
   get name() {
-    return i18n.global.t('widget.memo.name');
+    return i18n.global.t('widgets.memo.name');
   },
   component: Memo,
   get description() {
-    return i18n.global.t('widget.memo.description');
+    return i18n.global.t('widgets.memo.description');
   },
   toString: () => {
     return `${def.name}`;

@@ -2,12 +2,12 @@
   <q-dialog ref="dialogRef">
     <q-card>
       <q-card-section>
-        <div class="text-h6">{{ t('widget.memo.editConfigDialog.title') }}</div>
+        <div class="text-h6">{{ t('widgets.memo.config.title') }}</div>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
-        <q-input v-model="memoStore.config!.fontSize" :label="t('widget.memo.editConfigDialog.fontSize')" />
-        <q-input v-model="memoStore.config!.textColor" :label="t('widget.memo.editConfigDialog.labelColor')">
+        <q-input v-model="memoStore.config!.fontSize" :label="t('widgets.memo.config.fontSize')" />
+        <q-input v-model="memoStore.config!.textColor" :label="t('widgets.memo.config.labelColor')">
           <template v-slot:append>
             <q-icon name="colorize" class="cursor-pointer">
               <q-popup-proxy cover transition-show="scale" transition-hide="scale">

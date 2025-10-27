@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-btn :label="t('common.button.resetToDefault')" color="warning" @click="backgroundStore.resetToDefault" />
+    <q-btn :label="t('common.button.resetToDefault')" color="warning" @click="handleResetToDefault" />
     <q-input class="q-mt-md" v-model="backgroundStore.config!.blurLevel" :label="t('settings.background.blurLevel')" />
     <q-input class="col" v-model="backgroundStore.config!.image" clearable :label="t('settings.background.iconUrl')" />
     <q-file class="col-3" accept="image/*" v-model="iconFile" :label="t('settings.background.uploadLocalIcon')"
@@ -12,6 +12,7 @@
 import { useBackgroundStore } from 'src/stores/background';
 import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n'
+import { Notify } from 'quasar'
 
 const { t } = useI18n()
 const backgroundStore = useBackgroundStore()
@@ -43,6 +44,15 @@ function fileToBase64(f: File): Promise<string> {
 
 
     reader.readAsDataURL(f)
+  })
+}
+
+function handleResetToDefault() {
+  backgroundStore.resetToDefault()
+  Notify.create({
+    message: t('common.message.success'),
+    color: 'positive',
+    position: 'top',
   })
 }
 </script>

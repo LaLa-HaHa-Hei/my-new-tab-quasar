@@ -52,6 +52,7 @@ import AddWidgetPage from './settings/AddWidgetPage.vue'
 import ConfigManagerPage from './settings/ConfigManagerPage.vue'
 import CurrentTimePage from './settings/CurrentTimePage.vue'
 import CurrentDatePage from './settings/CurrentDatePage.vue'
+import AboutPage from './settings/AboutPage.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -74,6 +75,7 @@ const pages: ComputedRef<Record<string, { parent: string | null, component: Comp
   'dashboard': { parent: null, component: markRaw(DashboardPage), label: t('settings.pages.dashboard') },
   'add-widget': { parent: 'dashboard', component: markRaw(AddWidgetPage), label: t('settings.pages.addWidget') },
   'config-manager': { parent: null, component: markRaw(ConfigManagerPage), label: t('settings.pages.configManager') },
+  'about': { parent: null, component: markRaw(AboutPage), label: t('settings.pages.about') },
 }))
 const tabs = computed<{ name: string; component: Component; label: string }[]>(() =>
   Object.entries(pages.value)

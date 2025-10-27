@@ -1,6 +1,6 @@
 <template>
   <div class="full-width">
-    <q-btn :label="t('common.button.resetToDefault')" color="warning" @click="currentDateStore.resetToDefault" /> <br />
+    <q-btn :label="t('common.button.resetToDefault')" color="warning" @click="handleResetToDefault" /> <br />
     <q-toggle class="q-mt-md" v-model="currentDateStore.config!.display" :label="t('settings.currentDate.display')" />
     <q-input v-model="currentDateStore.config!.paddingTop" :label="t('settings.currentDate.paddingTop')" />
     <q-input v-model="currentDateStore.config!.gap" :label="t('settings.currentDate.gap')" />
@@ -18,9 +18,19 @@
 </template>
 
 <script setup lang="ts">
+import { Notify } from 'quasar';
 import { useCurrentDateStore } from 'src/stores/currentDate';
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const currentDateStore = useCurrentDateStore()
+
+function handleResetToDefault() {
+  currentDateStore.resetToDefault()
+  Notify.create({
+    message: t('common.message.success'),
+    color: 'positive',
+    position: 'top',
+  })
+}
 </script>

@@ -6,55 +6,75 @@ export default {
       cancel: '取消',
       resetToDefault: '恢复默认',
     },
+    form: {
+      name: '名称',
+    },
+    message: {
+      success: '成功',
+      failed: '失败',
+    },
   },
-  widget: {
+  widgets: {
     bookmark: {
       name: '书签',
       description: '用于快速访问某网站',
-      editItemDialog: {
-        title: '编辑书签',
+      item: {
         url: '网址',
-        label: '名称',
+        name: '名称',
         iconUrl: '图标地址',
-        uploadLocalIcon: '上传本地图标',
-        tryDetectOfficialIcon: '尝试检测官方图标',
-        rightClickSaveToLocal: '右键保存到本地后即可上传',
+        edit: {
+          title: '编辑书签',
+          uploadLocalIcon: '上传本地图标',
+          tryDetectOfficialIcon: '尝试检测官方图标',
+          rightClickSaveToLocal: '右键保存到本地后，您可以上传本地图标',
+        },
+        add: {
+          title: '添加书签',
+          uploadLocalIcon: '上传本地图标',
+          tryDetectOfficialIcon: '尝试检测官方图标',
+          rightClickSaveToLocal: '右键保存到本地后，您可以上传本地图标',
+        },
       },
-      editConfigDialog: {
+      config: {
         title: '书签配置',
         openInNewTab: '在新标签页打开',
-        showLabel: '显示文本',
-        fontSize: '文本大小',
-        labelColor: '文本颜色',
+        showName: '显示名称',
+        fontSize: '字体大小',
+        labelColor: '标签颜色',
         hoverBackgroundColor: '悬停背景颜色',
-      },
-      addItemDialog: {
-        title: '添加书签',
-        url: '网址',
-        label: '名称',
-        iconUrl: '图标地址',
-        uploadLocalIcon: '上传本地图标',
-        tryDetectOfficialIcon: '尝试检测官方图标',
-        rightClickSaveToLocal: '右键保存到本地后即可上传',
       },
     },
     memo: {
       name: '备忘录',
       description: '用于记录一些信息',
-      editConfigDialog: {
+      config: {
         title: '备忘录配置',
-        fontSize: '文本大小',
-        labelColor: '文本颜色',
+        fontSize: '字体大小',
+        textColor: '文本颜色',
       },
     },
   },
-  compoment: {
+  components: {
     dashboard: {
       editItem: '编辑组件',
       editItemSuccess: '编辑成功',
       editItemFailed: '编辑失败',
       editConfig: '编辑配置',
       deleteItem: '删除',
+    },
+    addSearchBoxDialog: {
+      title: '添加搜索引擎',
+      searchUrl: '以 %s 替换查询的 URL',
+      name: '名称',
+      iconUrl: '图标地址',
+      uploadLocalIcon: '上传本地图标',
+    },
+    editSearchBoxDialog: {
+      title: '添加搜索引擎',
+      searchUrl: '以 %s 替换查询的 URL',
+      name: '名称',
+      iconUrl: '图标地址',
+      uploadLocalIcon: '上传本地图标',
     },
   },
   settings: {
@@ -67,6 +87,7 @@ export default {
       dashboard: '仪表盘',
       addWidget: '添加组件',
       configManager: '配置管理',
+      about: '关于',
     },
     background: {
       blurLevel: '模糊度',
@@ -112,11 +133,9 @@ export default {
 
       isEnabled: '启用',
       name: '名称',
-      searchUrl: '搜索URL（以 %s 替换查询）',
+      searchUrl: '以 %s 替换查询的 URL',
       icon: '图标',
       action: '操作',
-
-      resetToDefaultSuccess: '恢复默认设置成功',
     },
     dashboard: {
       addWidget: '添加组件',
@@ -124,21 +143,12 @@ export default {
       width: '宽',
       height: '高',
       action: '操作',
-      resetToDefaultSuccess: '恢复默认设置成功',
     },
     configManager: {
       exportConfigToClipboard: '导出配置到剪贴板',
-      exportConfigToClipboardSuccess: '导出配置到剪贴板成功',
-      exportConfigToClipboardFailed: '导出配置到剪贴板失败',
       importConfigFromClipboard: '从剪贴板导入配置',
-      importConfigFromClipboardSuccess: '从剪贴板导入配置成功',
-      importConfigFromClipboardFailed: '从剪贴板导入配置失败',
       exportConfigToFile: '导出配置到文件',
-      exportConfigToFileSuccess: '导出配置到文件成功',
-      exportConfigToFileFailed: '导出配置到文件失败',
       importConfigFromFile: '从文件导入配置',
-      importConfigFromFileSuccess: '从文件导入配置成功',
-      importConfigFromFileFailed: '从文件导入配置失败',
     },
   },
 };

@@ -2,15 +2,15 @@
   <q-dialog ref="dialogRef">
     <q-card>
       <q-card-section>
-        <div class="text-h6">{{ t('widget.bookmark.editConfigDialog.title') }}</div>
+        <div class="text-h6">{{ t('widgets.bookmark.config.title') }}</div>
       </q-card-section>
 
       <q-card-section class="q-pt-none">
         <q-toggle v-model="bookmarkStore.config!.openInNewTab"
-          :label="t('widget.bookmark.editConfigDialog.openInNewTab')" />
-        <q-toggle v-model="bookmarkStore.config!.showLabel" :label="t('widget.bookmark.editConfigDialog.showLabel')" />
-        <q-input v-model="bookmarkStore.config!.fontSize" :label="t('widget.bookmark.editConfigDialog.fontSize')" />
-        <q-input v-model="bookmarkStore.config!.labelColor" :label="t('widget.bookmark.editConfigDialog.labelColor')">
+          :label="t('widgets.bookmark.editConfigDialog.openInNewTab')" />
+        <q-toggle v-model="bookmarkStore.config!.showLabel" :label="t('widgets.bookmark.config.showLabel')" />
+        <q-input v-model="bookmarkStore.config!.fontSize" :label="t('widgets.bookmark.config.fontSize')" />
+        <q-input v-model="bookmarkStore.config!.labelColor" :label="t('widgets.bookmark.config.labelColor')">
           <template v-slot:append>
             <q-icon name="colorize" class="cursor-pointer">
               <q-popup-proxy cover transition-show="scale" transition-hide="scale">
@@ -20,7 +20,7 @@
           </template>
         </q-input>
         <q-input v-model="bookmarkStore.config!.hoverBgColor"
-          :label="t('widget.bookmark.editConfigDialog.hoverBackgroundColor')">
+          :label="t('widgets.bookmark.config.hoverBackgroundColor')">
           <template v-slot:append>
             <q-icon name="colorize" class="cursor-pointer">
               <q-popup-proxy cover transition-show="scale" transition-hide="scale">
